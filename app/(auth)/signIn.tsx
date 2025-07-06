@@ -24,7 +24,6 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
 
   async function onSubmit() {
-    setLoading(true);
     // Simulate a network request
     if (!email || !password) {
       Alert.alert("Sign In", "Fill all the fields!!!");
@@ -46,6 +45,7 @@ const SignIn = () => {
     if (error) {
       Alert.alert("Sign In", error.message);
     }
+    return;
   }
 
   // setTimeout(() => {

@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-export default function TabTwoScreen() {
+export default function Explore() {
   return (
     <View>
       <Text>Welcome to Explore page</Text>
