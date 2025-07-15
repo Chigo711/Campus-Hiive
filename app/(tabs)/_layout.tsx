@@ -1,9 +1,8 @@
-import { Stack, useRouter } from "expo-router";
-import React, { useEffect } from "react";
+import { Stack } from "expo-router";
+import React from "react";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { supabase } from "@/lib/supabase";
-import { AuthProvider, useAuth } from "../../context/AuthContext";
+import { AuthProvider } from "../../context/AuthContext";
 
 const _layout = () => {
   return (
@@ -13,56 +12,56 @@ const _layout = () => {
   );
 };
 export default function MainLayout() {
-  const { setAuth } = useAuth();
-  const router = useRouter();
-  //   useEffect(() => {
-  //     supabase.auth.onAuthStateChange((_event, session) => {
-  //       //   setSession(session);
-  //       console.log("Session", session?.user);
+  // const { setAuth } = useAuth();
+  // const router = useRouter();
+  // //   useEffect(() => {
+  // //     supabase.auth.onAuthStateChange((_event, session) => {
+  // //       //   setSession(session);
+  // //       console.log("Session", session?.user);
 
-  //       if (session) {
-  //         // Set Auth
-  //         // Move to home screen
-  //         setAuth(session?.user);
-  //         router.replace("/(tabs)/explore");
+  // //       if (session) {
+  // //         // Set Auth
+  // //         // Move to home screen
+  // //         setAuth(session?.user);
+  // //         router.replace("/(tabs)/explore");
+  // //       } else {
+  // //         // Set Auth null
+  // //         // Move to Welcome Screen
+  // //         setAuth(null);
+  // //         router.replace("/welcome");
+  // //       }
+  // //     });
+  // //   }, []);
+
+  // useEffect(() => {
+  //   const init = async () => {
+  //     const {
+  //       data: { session },
+  //     } = await supabase.auth.getSession();
+
+  //     if (session?.user) {
+  // setAuth(session.user);/// We have remove the comment later when we have solved the authentication issue
+  //       router.replace("/(tabs)/home");
+  //     } else {
+  //       setAuth(null);
+  //       router.replace("/welcome");
+  //     }
+
+  //     supabase.auth.onAuthStateChange((_event, session) => {
+  //       if (session?.user) {
+  //         // setAuth(session.user);// Also this comment should be removed when the authentication is finally solved...
+  //         console.log("🔥 Auth Event:", event);
+  //         console.log("👤 Session User:", session?.user);
+  //         router.replace("/(tabs)/home");
   //       } else {
-  //         // Set Auth null
-  //         // Move to Welcome Screen
   //         setAuth(null);
   //         router.replace("/welcome");
   //       }
   //     });
-  //   }, []);
+  //   };
 
-  useEffect(() => {
-    const init = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      if (session?.user) {
-        setAuth(session.user);
-        router.replace("/(tabs)/home");
-      } else {
-        setAuth(null);
-        router.replace("/welcome");
-      }
-
-      supabase.auth.onAuthStateChange((_event, session) => {
-        if (session?.user) {
-          setAuth(session.user);
-          console.log("🔥 Auth Event:", event);
-          console.log("👤 Session User:", session?.user);
-          router.replace("/(tabs)/home");
-        } else {
-          setAuth(null);
-          router.replace("/welcome");
-        }
-      });
-    };
-
-    init();
-  }, []);
+  //   init();
+  // }, []);  // THIS WHOLE THING SHOULD BE COMMENTED OUT LATER WHEN THE AUTHENTICATION ISSUE HAS BEEN RESOLVED
 
   const colorScheme = useColorScheme();
 

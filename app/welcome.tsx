@@ -55,7 +55,7 @@ const Welcome = () => {
           <Button
             className="justify-center items-center  bg-buttonColor w-full"
             title="Get Started"
-            onPress={() => router.push("/(auth)/signUp")}
+            onPress={() => router.push("/(tabs)/profile")} //This should routing to Sign up, we have profile there for now till the authentication is done.
             buttonStyle={{
               marginHorizontal: wp(3),
               height: hp(6.6),
